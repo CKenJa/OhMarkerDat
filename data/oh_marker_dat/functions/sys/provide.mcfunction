@@ -4,7 +4,9 @@
 #
 # @within function oh_marker_dat:sys/please
 
-data modify storage oh_marker_dat: _ set from entity @s data.oh_marker_dat._
+data remove storage oh_marker_dat: _
+data modify storage oh_marker_dat: _ set from entity @s data.oh_marker_dat
+execute unless data storage oh_marker_dat: _ run data modify storage oh_marker_dat: _ set from storage oh_my_dat: initial
 
 # reset
 data remove storage oh_marker_dat: _[-4][-4][-4][-4][-4][-4][-4][6]
@@ -125,4 +127,4 @@ execute if score _ OhMarkerDat matches ..-1073741825 run data modify storage oh_
 # 11....
 execute if score _ OhMarkerDat matches -1073741824..-1 run data modify storage oh_marker_dat: _[-4][-4][-4][-4][-4][-4][-4] append from storage oh_my_dat: three_empty_maps[]
 
-data modify entity @s data.oh_marker_dat._ set from storage oh_marker_dat: _
+data modify entity @s data.oh_marker_dat set from storage oh_marker_dat: _
